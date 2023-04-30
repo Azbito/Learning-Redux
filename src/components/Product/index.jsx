@@ -14,7 +14,7 @@ export default function Product({ product }) {
     <div className="product-container">
       <img src={product.img} alt={product.alt} />
       <p>{product.name}</p>
-      <p>{product.price}</p>
+      <p>${product.price}</p>
       <Button onClick={handleProductClick} title="Add" />
     </div>
   )

@@ -7,9 +7,24 @@
   width: 10rem;
   border-radius: 1rem;
   padding: 2rem;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.548);
   
+  .product-item-remove-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem
+  }
+
   img {
     width: 6rem;
     border-radius: 1rem;
+  }
+
+  .buttons-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
   }
 }

@@ -1,17 +1,12 @@
 /* eslint-disabled */
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import './App.scss'
 import Header from './components/Header'
 import Product from './components/Product'
-import ProductItem from './components/ProductItem'
-import { useMemo } from 'react'
+import CartItem from './components/CartItem'
 
 export default function App() {
   const { products } = useSelector(rootReducer => rootReducer.cartReducer)
-
-  const productsCount = useMemo(() => {
-    return products.reduce((acc, curr) => acc + curr.quantity, 0)
-  })
 
   const productList = [
     {
@@ -19,14 +14,28 @@ export default function App() {
       img: 'images/bubbletea.png',
       alt: 'Bubbletea',
       name: 'Bubbletea',
-      price: '2 moneys'
+      price: 2
     },
     {
       id: 2,
       img: 'images/pizza.jpg',
       alt: 'Pizza',
       name: 'ONE slice of pizza',
-      price: '0.5 moneys'
+      price: 0.5
+    },
+    {
+      id: 3,
+      img: 'images/radish.png',
+      alt: 'Radish',
+      name: 'Radish',
+      price: 1572.3
+    },
+    {
+      id: 4,
+      img: 'images/meat.png',
+      alt: 'Meat',
+      name: 'Meat',
+      price: 10
     }
   ]
 
@@ -34,20 +43,16 @@ export default function App() {
     <div className="App">
       <Header />
       <div>
-        <div className="counter-container">
-          <p>{productsCount}</p>
-        </div>
         <div className="your-products-list">
-          {products.map(item => (
-            <ProductItem
-              key={item.id}
-              name={item.name}
-              alt={item.alt}
-              img={item.img}
-              price={item.price}
-              quantity={item.quantity}
-            />
-          ))}
+          {products ? (
+            <>
+              {products.map(product => (
+                <CartItem key={product.id} product={product} />
+              ))}
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
 

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loginUser, logoutUser } from '../../redux/user/actions'
 import Button from '../Button'
 import './styles.scss'
+import Cart from '../Cart'
 
 export default function Header() {
   const { currentUser } = useSelector(rootReducer => rootReducer.userReducer)
@@ -40,16 +41,19 @@ export default function Header() {
       />
       <strong>Learning Redux!</strong>
       {currentUser ? (
-        <p>
-          Happy {todaysWeekDay}, <b>{currentUser.name}!</b>
-        </p>
+        <div>
+          <p>
+            Happy {todaysWeekDay}, <b className="name">{currentUser.name}!</b>
+          </p>
+          <Cart />
+        </div>
       ) : (
         <></>
       )}
       {currentUser ? (
-        <Button title="Login" onClick={() => handleLogoutClick()} />
+        <Button title="Logout" onClick={() => handleLogoutClick()} />
       ) : (
-        <Button title="Logout" onClick={() => handleLoginClick()} />
+        <Button title="Login" onClick={() => handleLoginClick()} />
       )}
     </div>
   )
