@@ -1,0 +1,16 @@
+.product-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+  width: 15rem;
+  padding: 2rem;
+  height: 20rem;
+  border-radius: 2rem;
+
+  img {
+    width: 10rem;
+    border-radius: 2rem;
+  }
+}

@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser, logoutUser } from '../../redux/user/actions'
+import Button from '../Button'
+import './styles.scss'
 
 export default function Header() {
   const { currentUser } = useSelector(rootReducer => rootReducer.userReducer)
@@ -8,8 +10,7 @@ export default function Header() {
   const handleLoginClick = () => {
     dispatch(
       loginUser({
-        name: "Kog'Maw",
-        email: 'timetofeed@hotmail.com'
+        name: 'Hooman'
       })
     )
   }
@@ -31,16 +32,7 @@ export default function Header() {
   const todaysWeekDay = weekDays[todaysDate.getDay()]
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        marginTop: '2rem',
-        gap: '2rem'
-      }}
-    >
+    <div className="container">
       <img
         style={{ width: '4rem' }}
         src="https://bognarjunior.files.wordpress.com/2018/08/download.png"
@@ -55,9 +47,9 @@ export default function Header() {
         <></>
       )}
       {currentUser ? (
-        <button onClick={() => handleLogoutClick()}>Logout</button>
+        <Button title="Login" onClick={() => handleLogoutClick()} />
       ) : (
-        <button onClick={() => handleLoginClick()}>Login</button>
+        <Button title="Logout" onClick={() => handleLoginClick()} />
       )}
     </div>
   )

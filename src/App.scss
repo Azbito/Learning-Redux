@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.shopping-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem
+}
+
+.your-products-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem
+}
