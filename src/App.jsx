@@ -44,15 +44,9 @@ export default function App() {
       <Header />
       <div>
         <div className="your-products-list">
-          {products ? (
-            <>
-              {products.map(product => (
-                <CartItem key={product.id} product={product} />
-              ))}
-            </>
-          ) : (
-            <></>
-          )}
+          {products.map(product => (
+            <CartItem key={product.id} product={product} />
+          ))}
         </div>
       </div>
 
